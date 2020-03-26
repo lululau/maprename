@@ -9,7 +9,9 @@ $ sudo gem install maprename
 ```
 Usage: maprename [options]
     -c, --config CONFIG_FILE         Specify config file, defaults to `maprename.yml' in current directory
-    -d, --dry                        dry run: only print generated file copy command, not execute the generated commands, use this option for debugging or validating config file
+    -d, --dry                        dry run: only print generated file copy command,
+                                     not execute the generated commands, use this option
+                                     for debugging or validating config file
     -h, --help                       Prints this help
 ```
 
