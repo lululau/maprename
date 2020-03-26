@@ -117,6 +117,8 @@ See also: Official YAML specification: https://yaml.org/spec/1.2/spec.html
 
 文中，在学习过程中使用一个 Windows 上的正则表达式测试器来帮助理解，Mac 上可以使用这个 Web 版的正则表达式测试器： https://deerchao.cn/tools/wegester/
 
+Learn Regex the Easy Way: https://github.com/ziishaned/learn-regex/blob/master/translations/README-cn.md
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
