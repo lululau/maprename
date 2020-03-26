@@ -1,0 +1,47 @@
+input:
+  directory: ./tmp/in/
+  pattern: "(.*).txt"
+  source: "$1.pdf"
+  name_parse:
+    method: split
+    pattern: "[-_]"
+    fields:
+      - name: customer_name
+        value: "$1"
+      - name: raw_trans_no
+        value: "$2"
+        name_parse:
+          method: scan
+          pattern: L(.*)
+          fields:
+            - name: trans_no
+              value: "$1"
+  content_parse:
+    encoding: UTF-8
+    fields:
+      - name: address
+        pattern: "您的地址 ([^:：]+)"
+        value: "$1"
+      - name: trade_date
+        pattern: "交易日期：([0-9-]+)"
+        value: "$2"
+
+mapping:
+  file: ./tmp/in/mapping.csv
+  encoding: UTF-8
+  column_separator: ","
+  first_line_as_column_defination: false
+  columns:
+    - name: trans_id
+      index: 1
+    - name: account_no
+      index: 2
+  select:
+    - keyword_column: trans_id
+      keyword_value: trans_no
+      select_column: account_no
+      name: acct_no
+
+output:
+  directory: ./tmp/out/
+  filename: "#{trade_date}/#{customer_name}-#{acct_no}-#{address}.pdf"
