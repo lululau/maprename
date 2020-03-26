@@ -111,7 +111,7 @@ YAML 是一种常用的配置文件格式，它以不同层次的缩进来表示
 
 See also: Official YAML specification: https://yaml.org/spec/1.2/spec.html
 
-## Involve with Regular Expression
+## Getting involved in Regular Expression
 
 正则表达式30分钟入门教程: https://deerchao.cn/tutorials/regex/regex.htm
 
