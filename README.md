@@ -44,7 +44,7 @@ input:
         value: "$1"
       - name: trade_date
         pattern: "交易日期：([0-9-]+)"
-        value: "$2"
+        value: "$1"
 
 mapping:
   file: ./tmp/in/mapping.csv
