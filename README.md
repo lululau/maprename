@@ -9,7 +9,7 @@ $ sudo gem install maprename
 ```
 Usage: maprename [options]
     -c, --config CONFIG_FILE         Specify config file, defaults to `maprename.yml' in current directory
-    -d, --dry                        dry run: only print generated file copy command,
+    -d, --dry                        dry run: only print generated file copy commands,
                                      not execute the generated commands, use this option
                                      for debugging or validating config file
     -h, --help                       Prints this help
@@ -105,7 +105,7 @@ output:
 
 ## About YAML
 
-YAML 是一种常用的配置文件格式，它以使用层次的缩进来表示配置项之间的从属关系和结构，缩紧所使用的空白字符个数必须是规范的：同一级配置项的缩紧必须相同，第 N 层和第 N+1 层之间的缩进差别必须等于第 N+1 层和 第 N+2 层之间的缩紧差别，一个缩进递进中，推荐使用两个空格作为缩进
+YAML 是一种常用的配置文件格式，它以不同层次的缩进来表示配置项之间的从属关系和结构，缩紧所使用的空白字符个数必须是规范的：同一级配置项的缩紧必须相同，第 N 层和第 N+1 层之间的缩进差别必须等于第 N+1 层和 第 N+2 层之间的缩紧差别，一个缩进递进中，推荐使用两个空格作为缩进
 
 以减号开头的配置项表示它的上一级配置项的值是数组类型，每个减号表示数组中的一个元素
 
