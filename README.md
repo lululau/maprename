@@ -9,7 +9,7 @@ $ sudo gem install maprename
 ```
 Usage: maprename [options]
     -c, --config CONFIG_FILE         Specify config file, defaults to `maprename.yml' in current directory
-    -d, --dry                        dry run
+    -d, --dry                        dry run: only print generated file copy command, not execute the generated commands, use this option for debugging or validating config file
     -h, --help                       Prints this help
 ```
 
@@ -99,11 +99,21 @@ output:
     + `name`: 要存储到变量的名称, 在 `output.filename` 中可以使用 `#{变量名}` 的方法获取此变量的值
 + `output`: 和输出文件相关的配置
   + `directory`: 输出的目录
-  + `filename`: 输出文件名的生成规则，其中可以包含字符串字面亮和 `#{变量名}` 形式的变量取值
+  + `filename`: 输出文件名的生成规则，其中可以包含字符串字面量和 `#{变量名}` 形式的变量取值
 
 ## About YAML
 
+YAML 是一种常用的配置文件格式，它以使用层次的缩进来表示配置项之间的从属关系和结构，缩紧所使用的空白字符个数必须是规范的：同一级配置项的缩紧必须相同，第 N 层和第 N+1 层之间的缩进差别必须等于第 N+1 层和 第 N+2 层之间的缩紧差别，一个缩进递进中，推荐使用两个空格作为缩进
+
+以减号开头的配置项表示它的上一级配置项的值是数组类型，每个减号表示数组中的一个元素
+
+See also: Official YAML specification: https://yaml.org/spec/1.2/spec.html
+
 ## Involve with Regular Expression
+
+正则表达式30分钟入门教程: https://deerchao.cn/tutorials/regex/regex.htm
+
+文中，在学习过程中使用一个 Windows 上的正则表达式测试器来帮助理解，Mac 上可以使用这个 Web 版的正则表达式测试器： https://deerchao.cn/tools/wegester/
 
 ## License
 
