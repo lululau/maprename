@@ -1,6 +1,12 @@
 require 'optparse'
 require 'maprename/app'
 
+module Kernel
+  def debug(msg)
+    puts msg if $debug
+  end
+end
+
 module Maprename
   class Cli
     def initialize
@@ -18,6 +24,11 @@ module Maprename
 
         opts.on("-d", "--dry", "dry run") do
           @options[:dry] = true
+        end
+
+        opts.on("-D", "--debug", "debug") do
+          @options[:debug] = true
+          $debug = true
         end
 
         opts.on("-h", "--help", "Prints this help") do
@@ -39,7 +50,8 @@ module Maprename
         puts @raw_options
         exit 1
       end
-      Maprename::App.new(config_file).run!(@options[:dry])
+      debug "CLI Options: #{@options}"
+      Maprename::App.new(config_file).run!(@options)
     end
   end
 end

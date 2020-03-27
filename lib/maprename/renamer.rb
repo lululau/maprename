@@ -10,7 +10,7 @@ module Maprename
       @context = OpenStruct.new
       @file = file
       @config = config
-
+      debug "Process file: #@file"
       parse_config!
     end
 
@@ -29,10 +29,10 @@ module Maprename
     end
 
     def rename!(dry)
-      if dry
-        puts "mkdir -p %s" % File.dirname(destination)
-        puts "cp %s %s" % [source, destination]
-      else
+      puts "mkdir -p %s" % File.dirname(destination)
+      puts "cp %s %s" % [source, destination]
+
+      unless dry
         FileUtils.mkdir_p(File.dirname(destination))
         FileUtils.copy_file(source, destination)
       end
