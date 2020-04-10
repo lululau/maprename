@@ -29,7 +29,7 @@ module Maprename
 
     def read_file_content(file)
       encoding = config[:encoding] || 'UTF-8'
-      content = IO.read(file, encoding: encoding)
+      content = IO.read(file, encoding: encoding).encode('UTF-8')
       if config[:pre_processor]
         IO.popen(config[:pre_processor]) do |pipe|
           pipe.write(content)

@@ -24,7 +24,7 @@ module Maprename
     def build_content
       encoding = config[:encoding] || 'UTF-8'
       separator = config[:column_separator] || "\t"
-      content = IO.readlines(config[:file], encoding: encoding).map(&:chomp)
+      content = IO.readlines(config[:file], encoding: encoding).map { |l| l.chomp.encode('UTF-8') }
       debug "  MappingParser total mapping lines: #{content.size}"
       if config[:first_line_as_column_defination]
         config[:columns] = content.first.split(separator).each_with_index.map do |(c, i)|
