@@ -11,7 +11,7 @@ module Maprename
     def run!(opts)
       input_files.each do |file|
         file = File.join(@config[:input][:directory], file)
-        Maprename::Renamer.new(file, @config).rename!(opts)
+        Maprename::Renamer.new(file, @config).rename!(opts[:dry])
       end
     end
 
