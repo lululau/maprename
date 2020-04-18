@@ -10,8 +10,15 @@ module Maprename
 
     def run!(opts)
       input_files.each do |file|
+        begin
         file = File.join(@config[:input][:directory], file)
         Maprename::Renamer.new(file, @config).rename!(opts[:dry])
+        rescue => e
+          STDERR.puts("Error occurs when processing file: #{file}, skipped")
+          if $debug
+            STDERR.puts "#{e.inspect}, #{e.backtrace}"
+          end
+        end
       end
     end
 

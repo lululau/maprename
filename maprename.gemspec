@@ -24,4 +24,5 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'activesupport'
+  spec.add_development_dependency "pry-byebug", "~> 3.9.0"
 end
