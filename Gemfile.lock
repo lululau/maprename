@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    maprename (0.1.4)
+    maprename (0.1.5)
       activesupport
 
 GEM
